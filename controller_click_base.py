@@ -35,11 +35,13 @@ class Controller:
             # This is a normal switch. Start the LearningSwitch
 	    log.info("Starting a LearningSwitch for %d" % event.dpid)
             LearningSwitch(event.connection, False)
+	    """
         elif(event.dpid == 0xF):
 	    log.info("Starting a Click process for %d" % event.dpid)
             # This is the click switch. Launch it
             self.launch_click(event.dpid, "fowarder.click", "switch")
             pass
+	"""
         else:
             log.info("Unrecognized dpid %d from switch. No component will be associated to the switch" % (
                 event.dpid,))

@@ -38,9 +38,10 @@ class Controller:
 	# Simple click, send to background
 	cmd = "sudo click forwarder.click &"
 	# Override the variables
-	#cmd = "sudo click forwarder.click PORT1=%s PORT2=%s &" % ("sw2-eth1", "sw2-eth2")
+	# cmd = "sudo click forwarder.click PORT1=%s PORT2=%s &" % ("sw2-eth1", "sw2-eth2")
+
 	# Send output to a file
-	#cmd = "sudo click forwarder.click > /tmp/click.out &" 
+	# cmd = "sudo click forwarder.click > /tmp/click.out &" 
 
 	# Send also stderr to a file
 	# cmd = "sudo click forwarder_counters.click > /tmp/click.out 2>&1 &" 
@@ -63,10 +64,12 @@ class Controller:
 	    log.info("Starting a LearningSwitch for %d" % event.dpid)
             LearningSwitch(event.connection, False)
         elif(event.dpid == 0xF):
+            """
+	    # This is the click switch. Launch it
 	    log.info("Starting a Click process for %d" % event.dpid)
-            # This is the click switch. Launch it
-            # self.launch_click(event.dpid, "switch.click", "switch")
-            pass
+            self.launch_click(event.dpid, "switch.click", "switch")
+            """
+	    pass
         else:
             log.info("Unrecognized dpid %d from switch. No component will be associated to the switch" % (
                 event.dpid,))
