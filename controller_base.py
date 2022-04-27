@@ -17,10 +17,10 @@ class Controller:
         core.openflow.addListeners(self)
 
     def _handle_ConnectionUp(self, event):
-	    log.info("Starting a LearningSwitch for %d" % event.dpid)
-            LearningSwitch(event.connection, False)
+        log.info("Starting a LearningSwitch for %d" % event.dpid)
+        LearningSwitch(event.connection, False)
+
 
 def launch():
     log.info("Starting %s" % __file__)
     core.registerNew(Controller)
-
