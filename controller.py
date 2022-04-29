@@ -33,8 +33,12 @@ class Controller:
         # Something like (the square brackets are needed to not match grep itself)
         # PUT ONLY ONE CHARACTER IN THE SQUARE PARENTHESIS!
 
+        #subprocess.check_output(
+        #    "sudo kill -SIGTERM `ps -ef | grep '[.]click' | awk '{print $2}'` || true", shell=True)
+
+        # Or simply, all click processes
         subprocess.check_output(
-            "sudo kill -SIGTERM `ps -ef | grep '[.]click' | awk '{print $2}'` || true", shell=True)
+            "sudo killall -SIGTERM click || true", shell=True)
 
         # Simply start click, send to background
         cmd = "sudo click forwarder.click &"
